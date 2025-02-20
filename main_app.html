@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Unlock</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f4f4f4;
+        }
+        .poem {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .input-box {
+            margin: 10px;
+        }
+        input {
+            font-size: 18px;
+            padding: 5px;
+            text-align: center;
+        }
+        #unlock-link {
+            display: none;
+            margin-top: 20px;
+            font-size: 22px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Unlock the Mystery</h2>
+    <p class="poem">
+        Ancient legends speak of might,<br>
+        Where an <input class="input-box" id="word1" type="text" placeholder="?????"> takes its flight,<br>
+        Crossing borders day and night,<br>
+        You will <input class="input-box" id="word2" type="text" placeholder="?????"> a <input class="input-box" id="word3" type="text" placeholder="?????"> tight.<br><br>
+        Below the clouds where mysteries dwell,<br>
+        A <input class="input-box" id="word4" type="text" placeholder="?????"> guards its sacred well,<br>
+        When these two meet, stories tell<br>
+        Of destinies that time can't quell.
+    </p>
+    <button onclick="checkAnswers()">Submit</button>
+    <p id="unlock-link"><a href="https://open.spotify.com/playlist/5edKjajRX8Z9kK04iPqlX8?si=QuJsZwWKSOGE2LnGP_dsMA" target="_blank">🎶 Click here to reveal your destination! 🎶</a></p>
+
+    <script>
+        function checkAnswers() {
+            const answers = {
+                word1: "eagle",
+                word2: "need",
+                word3: "passport",
+                word4: "snake"
+            };
+
+            let allCorrect = true;
+            for (let key in answers) {
+                let userInput = document.getElementById(key).value.trim().toLowerCase();
+                if (userInput !== answers[key]) {
+                    allCorrect = false;
+                    break;
+                }
+            }
+
+            if (allCorrect) {
+                document.getElementById("unlock-link").style.display = "block";
+            } else {
+                alert("Hmm, something isn't right. Try again!");
+            }
+        }
+    </script>
+</body>
+</html>
