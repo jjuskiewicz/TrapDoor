@@ -62,38 +62,10 @@
     <button onclick="checkAnswers()">Submit</button>
 
     <div id="popup" class="popup">
-        <p><a href="https://open.spotify.com/playlist/5edKjajRX8Z9kK04iPqlX8?si=QuJsZwWKSOGE2LnGP_dsMA" target="_blank">🎶 Click to unlock the mystery 🎶</a></p>
+        <p><a id="mystery-link" href="#" target="_blank">🎶 Click to unlock the mystery 🎶</a></p>
         <button onclick="closePopup()">Close</button>
     </div>
 
-    <script>
-        function checkAnswers() {
-            const answers = {
-                word1: "eagle",
-                word2: "need",
-                word3: "passport",
-                word4: "snake"
-            };
-
-            let allCorrect = true;
-            for (let key in answers) {
-                let userInput = document.getElementById(key).value.trim().toLowerCase();
-                if (userInput !== answers[key]) {
-                    allCorrect = false;
-                    break;
-                }
-            }
-
-            if (allCorrect) {
-                document.getElementById("popup").style.display = "block";
-            } else {
-                alert("Hmm, something isn't right. Try again!");
-            }
-        }
-
-        function closePopup() {
-            document.getElementById("popup").style.display = "none";
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
