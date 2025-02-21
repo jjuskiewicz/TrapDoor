@@ -6,7 +6,7 @@ async function fetchData() {
 async function checkAnswers() {
     const data = await fetchData();
     const answers = data.answers;
-    const encodedLink = data.link;  // Base64 encoded
+    const encodedLink = data.link;
 
     let allCorrect = true;
     for (let key in answers) {
@@ -18,7 +18,7 @@ async function checkAnswers() {
     }
 
     if (allCorrect) {
-        const decodedLink = atob(encodedLink);  // Decode the base64 string
+        const decodedLink = atob(encodedLink);
         document.getElementById("mystery-link").href = decodedLink;
         document.getElementById("popup").style.display = "block";
     } else {
